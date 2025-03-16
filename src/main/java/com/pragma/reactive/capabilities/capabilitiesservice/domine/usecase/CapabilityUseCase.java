@@ -23,8 +23,8 @@ public class CapabilityUseCase implements ICapabilityServicePort {
     public Flux<Capability> findAll(int page, int size, boolean asc) {
         int offset = page * size;
         if (asc) {
-            return capabilityPersistencePort.findAllPageAsc(offset, size);
+            return capabilityPersistencePort.findAllPageAsc(size, offset);
         }
-        return capabilityPersistencePort.findAllPageDesc(offset, size);
+        return capabilityPersistencePort.findAllPageDesc(size, offset);
     }
 }

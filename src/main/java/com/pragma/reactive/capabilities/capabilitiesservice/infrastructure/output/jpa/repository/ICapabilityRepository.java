@@ -11,7 +11,7 @@ import reactor.core.publisher.Flux;
 public interface ICapabilityRepository extends ReactiveCrudRepository<CapabilityEntity, Long> {
 
     @Query("SELECT * FROM capabilities ORDER BY name ASC LIMIT :limit OFFSET :offset")
-    Flux<CapabilityEntity> findAllPageAsc(@Param("limit") int limit, @Param("offset") int offset);
+    Flux<CapabilityEntity> findAllPageAsc(int limit,int offset);
 
     @Query("SELECT * FROM capabilities ORDER BY name DESC LIMIT :limit OFFSET :offset")
     Flux<CapabilityEntity> findAllPageDesc(@Param("limit") int limit, @Param("offset") int offset);
