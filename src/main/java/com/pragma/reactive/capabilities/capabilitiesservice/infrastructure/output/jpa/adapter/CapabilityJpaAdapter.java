@@ -21,11 +21,13 @@ public class CapabilityJpaAdapter implements ICapabilityPersistencePort {
 
     @Override
     public Flux<Capability> findAllPageAsc(int limit, int offset) {
-        return null;
+        return capabilityRepository.findAllPageAsc(limit,offset)
+                .map(capabilityEntityMapper::toCapabilityObject);
     }
 
     @Override
     public Flux<Capability> findAllPageDesc(int limit, int offset) {
-        return null;
+        return capabilityRepository.findAllPageDesc(limit,offset)
+                .map(capabilityEntityMapper::toCapabilityObject);
     }
 }
