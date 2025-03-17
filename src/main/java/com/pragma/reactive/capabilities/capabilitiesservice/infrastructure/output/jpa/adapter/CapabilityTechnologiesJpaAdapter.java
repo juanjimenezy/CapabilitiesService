@@ -20,4 +20,10 @@ public class CapabilityTechnologiesJpaAdapter implements ICapabilityTechnologies
         return repository.saveAll(mapper.toCapabilityTechnologiesEntity(capabilityTecnologies))
                 .map(mapper::toCapabilityTechnologies);
     }
+
+    @Override
+    public Flux<CapabilityTechnologies> findByCapabilityId(Long capabilityId) {
+        return repository.findByCapabilityId(capabilityId)
+                .map(mapper::toCapabilityTechnologies);
+    }
 }

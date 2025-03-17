@@ -11,5 +11,5 @@ public class CapabilityResponseDTO {
     private Long id;
     private String name;
     private String description;
-    private List<Long> tecnologiesId;
+    private List<TechnologyResponseDTO> technologies;
 }

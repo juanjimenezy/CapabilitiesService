@@ -7,7 +7,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class CapabilityUseCase implements ICapabilityServicePort {
-
     private final ICapabilityPersistencePort capabilityPersistencePort;
 
     public CapabilityUseCase(ICapabilityPersistencePort capabilityPersistencePort) {

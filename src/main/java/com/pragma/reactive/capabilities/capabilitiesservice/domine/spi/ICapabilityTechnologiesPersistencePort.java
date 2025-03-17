@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ICapabilityTechnologiesPersistencePort {
     Flux<CapabilityTechnologies> saveAll(List<CapabilityTechnologies> capabilityTecnologies);
+    Flux<CapabilityTechnologies> findByCapabilityId(Long capabilityId);
 }

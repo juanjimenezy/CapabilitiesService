@@ -24,4 +24,9 @@ public class CapabilityTechnologiesUseCase implements ICapabilityTechnologiesSer
                 .switchIfEmpty(Mono.error(new DomainException("The list must contain between 3 and 20 records.")))
                 .flatMapMany(capabilityTechnologiesPersistencePort::saveAll);
     }
+
+    @Override
+    public Flux<CapabilityTechnologies> fingByCapabilityId(Long id) {
+        return capabilityTechnologiesPersistencePort.findByCapabilityId(id);
+    }
 }

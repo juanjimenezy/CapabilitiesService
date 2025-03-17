@@ -27,8 +27,6 @@ public class CapabilityController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Flux<CapabilityResponseDTO> findAll(@Valid @RequestBody PagueableRequestDTO pagueableRequestDTO) {
-        return capabilityHandler.getAllCapabilities(pagueableRequestDTO.getPage(),
-                pagueableRequestDTO.getSize(),
-                pagueableRequestDTO.isAsc());
+        return capabilityHandler.getAllCapabilities(pagueableRequestDTO.getPage(), pagueableRequestDTO.getSize(), pagueableRequestDTO.isAsc());
     }
 }
