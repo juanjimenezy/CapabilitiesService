@@ -5,7 +5,6 @@ import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ITechnolo
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service

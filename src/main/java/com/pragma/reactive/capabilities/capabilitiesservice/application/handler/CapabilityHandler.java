@@ -41,7 +41,7 @@ public class CapabilityHandler implements ICapabilityHandler {
         return capabilityServicePort.save(capabilityRequestMapper.toCapability(capabilityRequestDTO))
                 .flatMap(capabilitySave -> {
                     List<CapabilityTechnologies> capabilityTechnologies =
-                            capabilityRequestDTO.getTecnologiesId().stream().map(techId -> new CapabilityTechnologies(capabilitySave.getId(),techId)).toList();
+                            capabilityRequestDTO.getTecnologiesId().stream().map(techId -> new CapabilityTechnologies(capabilitySave.getId(), techId)).toList();
                     return capabilityTechnologiesServicePort.saveAll(capabilityTechnologies).then(Mono.just(capabilitySave));
                 })
                 .map(capabilityResponseMapper::toResponseDTO);
@@ -49,12 +49,14 @@ public class CapabilityHandler implements ICapabilityHandler {
 
     @Override
     public Flux<CapabilityResponseDTO> getAllCapabilities(int page, int size, boolean asc) {
-        return capabilityServicePort.findAll(page,size,asc)
+        return capabilityServicePort.findAll(page, size, asc)
                 .map(capabilityResponseMapper::toResponseDTO)
                 .map(capabilityResponseDTO -> {
                     List<CapabilityTechnologies> technologies = capabilityTechnologiesServicePort.fingByCapabilityId(capabilityResponseDTO.getId()).toStream().toList();
                     List<Technology> technology = new ArrayList<Technology>();
-                    technologies.stream().map(ct -> technology.add(technologyServicePort.getTechnology(ct.getTechnologyId()).block()));
+                    technologies.stream().map(ct -> {
+                        return technologyServicePort.getTechnology(ct.getTechnologyId()).map(technology::add);
+                    });
                     capabilityResponseDTO.setTechnologies(technologyResponseMapper.toTechnologyResponseDTOList(technology));
                     return capabilityResponseDTO;
                 });
