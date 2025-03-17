@@ -9,12 +9,10 @@ import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabili
 import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityTechnologiesServicePort;
 import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ITechnologyServicePort;
 import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Technology;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,15 +48,14 @@ public class CapabilityHandler implements ICapabilityHandler {
     @Override
     public Flux<CapabilityResponseDTO> getAllCapabilities(int page, int size, boolean asc) {
         return capabilityServicePort.findAll(page, size, asc)
-                .map(capabilityResponseMapper::toResponseDTO)
-                .map(capabilityResponseDTO -> {
-                    List<CapabilityTechnologies> technologies = capabilityTechnologiesServicePort.fingByCapabilityId(capabilityResponseDTO.getId()).toStream().toList();
-                    List<Technology> technology = new ArrayList<Technology>();
-                    technologies.stream().map(ct -> {
-                        return technologyServicePort.getTechnology(ct.getTechnologyId()).map(technology::add);
-                    });
-                    capabilityResponseDTO.setTechnologies(technologyResponseMapper.toTechnologyResponseDTOList(technology));
-                    return capabilityResponseDTO;
-                });
+                .flatMap(capability -> capabilityTechnologiesServicePort.fingByCapabilityId(capability.getId())
+                        .flatMap(capTech -> technologyServicePort.getTechnology(capTech.getTechnologyId()))
+                        .collectList()
+                        .map(techList -> {
+                            CapabilityResponseDTO dto = capabilityResponseMapper.toResponseDTO(capability);
+                            dto.setTechnologies(technologyResponseMapper.toTechnologyResponseDTOList(techList));
+                            return dto;
+                        })
+                );
     }
 }
