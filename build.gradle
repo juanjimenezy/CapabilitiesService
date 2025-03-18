@@ -77,7 +77,7 @@ jacocoTestReport {
     }
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, includes: ['com/pragma/reactive/capabilities/capabilitiesservice/domine/usecase/**'])
+            fileTree(dir: it, includes: ['com/pragma/reactive/capabilities/capabilitiesservice/domain/usecase/**'])
         }))
     }
 

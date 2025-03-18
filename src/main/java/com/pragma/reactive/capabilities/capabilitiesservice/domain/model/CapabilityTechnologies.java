@@ -4,6 +4,9 @@ public class CapabilityTechnologies {
     private Long capabilityId;
     private Long technologyId;
 
+    public CapabilityTechnologies() {
+    }
+
     public CapabilityTechnologies(Long capabilityId, Long technologyId) {
         this.capabilityId = capabilityId;
         this.technologyId = technologyId;
