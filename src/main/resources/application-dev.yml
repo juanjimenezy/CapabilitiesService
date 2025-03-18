@@ -1,18 +1,22 @@
 server:
-    port: 8090
+  port: 8090
 
 spring:
-    application:
-        name: CapabilitiesService
+  application:
+    name: CapabilitiesService
 
-    r2dbc:
-        url: r2dbc:mysql://localhost:3306/capabilities-db
-        username: root
-        password: root
-        pool:
-            enabled: true
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/capabilities-db
+    username: root
+    password: root
+    pool:
+      enabled: true
 
-    sql:
-        init:
-            mode: always
-            platform: mysql
+  sql:
+    init:
+      mode: always
+      platform: mysql
+
+technology:
+  api:
+    url: http://localhost:8089

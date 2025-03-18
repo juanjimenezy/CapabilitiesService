@@ -1,9 +1,9 @@
-package com.pragma.reactive.capabilities.capabilitiesservice.domine.usecase;
+package com.pragma.reactive.capabilities.capabilitiesservice.domain.usecase;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityTechnologiesServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.exception.DomainException;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ICapabilityTechnologiesPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ICapabilityTechnologiesServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.exception.DomainException;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.CapabilityTechnologies;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ICapabilityTechnologiesPersistencePort;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

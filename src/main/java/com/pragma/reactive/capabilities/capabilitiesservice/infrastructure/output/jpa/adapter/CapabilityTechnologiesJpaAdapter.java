@@ -1,7 +1,7 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.adapter;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ICapabilityTechnologiesPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.CapabilityTechnologies;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ICapabilityTechnologiesPersistencePort;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.mapper.ICapabilityTechnologiesMapper;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.repository.ICapabilityTechnologiesRepository;
 import lombok.RequiredArgsConstructor;

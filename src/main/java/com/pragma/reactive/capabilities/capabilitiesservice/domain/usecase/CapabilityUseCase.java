@@ -1,8 +1,8 @@
-package com.pragma.reactive.capabilities.capabilitiesservice.domine.usecase;
+package com.pragma.reactive.capabilities.capabilitiesservice.domain.usecase;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Capability;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ICapabilityPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ICapabilityServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.Capability;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ICapabilityPersistencePort;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -25,5 +25,10 @@ public class CapabilityUseCase implements ICapabilityServicePort {
             return capabilityPersistencePort.findAllPageAsc(size, offset);
         }
         return capabilityPersistencePort.findAllPageDesc(size, offset);
+    }
+
+    @Override
+    public Mono<Capability> findById(Long id) {
+        return capabilityPersistencePort.findById(id);
     }
 }

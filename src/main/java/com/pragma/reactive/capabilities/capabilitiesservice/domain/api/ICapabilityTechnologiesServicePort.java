@@ -1,6 +1,6 @@
-package com.pragma.reactive.capabilities.capabilitiesservice.domine.api;
+package com.pragma.reactive.capabilities.capabilitiesservice.domain.api;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.CapabilityTechnologies;
 import reactor.core.publisher.Flux;
 
 import java.util.List;

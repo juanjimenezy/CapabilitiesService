@@ -1,4 +1,4 @@
-package com.pragma.reactive.capabilities.capabilitiesservice.domine.model;
+package com.pragma.reactive.capabilities.capabilitiesservice.domain.model;
 
 public class CapabilityTechnologies {
     private Long capabilityId;

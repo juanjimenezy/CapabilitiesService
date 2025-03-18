@@ -5,10 +5,10 @@ import com.pragma.reactive.capabilities.capabilitiesservice.application.dto.resp
 import com.pragma.reactive.capabilities.capabilitiesservice.application.mapper.ICapabilityRequestMapper;
 import com.pragma.reactive.capabilities.capabilitiesservice.application.mapper.ICapabilityResponseMapper;
 import com.pragma.reactive.capabilities.capabilitiesservice.application.mapper.ITechnologyResponseMapper;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityTechnologiesServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ITechnologyServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ICapabilityServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ICapabilityTechnologiesServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ITechnologyServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.CapabilityTechnologies;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -48,6 +48,20 @@ public class CapabilityHandler implements ICapabilityHandler {
     @Override
     public Flux<CapabilityResponseDTO> getAllCapabilities(int page, int size, boolean asc) {
         return capabilityServicePort.findAll(page, size, asc)
+                .flatMap(capability -> capabilityTechnologiesServicePort.fingByCapabilityId(capability.getId())
+                        .flatMap(capTech -> technologyServicePort.getTechnology(capTech.getTechnologyId()))
+                        .collectList()
+                        .map(techList -> {
+                            CapabilityResponseDTO dto = capabilityResponseMapper.toResponseDTO(capability);
+                            dto.setTechnologies(technologyResponseMapper.toTechnologyResponseDTOList(techList));
+                            return dto;
+                        })
+                );
+    }
+
+    @Override
+    public Mono<CapabilityResponseDTO> getCapability(Long id) {
+        return capabilityServicePort.findById(id)
                 .flatMap(capability -> capabilityTechnologiesServicePort.fingByCapabilityId(capability.getId())
                         .flatMap(capTech -> technologyServicePort.getTechnology(capTech.getTechnologyId()))
                         .collectList()

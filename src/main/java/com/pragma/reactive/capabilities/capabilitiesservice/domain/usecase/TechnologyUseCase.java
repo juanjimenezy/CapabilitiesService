@@ -1,8 +1,8 @@
-package com.pragma.reactive.capabilities.capabilitiesservice.domine.usecase;
+package com.pragma.reactive.capabilities.capabilitiesservice.domain.usecase;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ITechnologyServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Technology;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ITechnologyPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ITechnologyServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.Technology;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ITechnologyPersistencePort;
 import reactor.core.publisher.Mono;
 
 public class TechnologyUseCase implements ITechnologyServicePort {

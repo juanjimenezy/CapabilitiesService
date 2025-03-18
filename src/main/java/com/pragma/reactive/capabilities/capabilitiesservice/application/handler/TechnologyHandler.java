@@ -1,7 +1,7 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.application.handler;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ITechnologyServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Technology;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ITechnologyServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.Technology;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 

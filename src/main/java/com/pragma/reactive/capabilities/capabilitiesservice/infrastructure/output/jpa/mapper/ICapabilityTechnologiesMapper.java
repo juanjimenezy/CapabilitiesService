@@ -1,6 +1,6 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.mapper;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.CapabilityTechnologies;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.entity.CapabilityTechnologiesEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

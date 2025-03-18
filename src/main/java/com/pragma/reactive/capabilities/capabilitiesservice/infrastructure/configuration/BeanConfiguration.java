@@ -1,14 +1,14 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.configuration;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ICapabilityTechnologiesServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.api.ITechnologyServicePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ICapabilityPersistencePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ICapabilityTechnologiesPersistencePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ITechnologyPersistencePort;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.usecase.CapabilityTechnologiesUseCase;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.usecase.CapabilityUseCase;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.usecase.TechnologyUseCase;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ICapabilityServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ICapabilityTechnologiesServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.api.ITechnologyServicePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ICapabilityPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ICapabilityTechnologiesPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ITechnologyPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.usecase.CapabilityTechnologiesUseCase;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.usecase.CapabilityUseCase;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.usecase.TechnologyUseCase;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.service.TechnologyService;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.adapter.CapabilityJpaAdapter;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.adapter.CapabilityTechnologiesJpaAdapter;

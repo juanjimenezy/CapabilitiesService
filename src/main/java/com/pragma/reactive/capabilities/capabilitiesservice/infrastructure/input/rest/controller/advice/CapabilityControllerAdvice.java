@@ -1,6 +1,6 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.controller.advice;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.exception.DomainException;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.exception.DomainException;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.controller.CapabilityController;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

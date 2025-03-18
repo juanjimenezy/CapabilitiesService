@@ -1,7 +1,7 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.adapter;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Capability;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ICapabilityPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.Capability;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ICapabilityPersistencePort;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.mapper.ICapabilityEntityMapper;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.repository.ICapabilityRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +28,12 @@ public class CapabilityJpaAdapter implements ICapabilityPersistencePort {
     @Override
     public Flux<Capability> findAllPageDesc(int limit, int offset) {
         return capabilityRepository.findAllPageDesc(limit,offset)
+                .map(capabilityEntityMapper::toCapabilityObject);
+    }
+
+    @Override
+    public Mono<Capability> findById(Long id) {
+        return capabilityRepository.findById(id)
                 .map(capabilityEntityMapper::toCapabilityObject);
     }
 }

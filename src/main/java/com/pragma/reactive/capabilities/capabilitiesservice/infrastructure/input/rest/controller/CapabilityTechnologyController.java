@@ -1,7 +1,7 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.controller;
 
 import com.pragma.reactive.capabilities.capabilitiesservice.application.handler.ICapabilityTechnologyHandler;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.CapabilityTechnologies;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.CapabilityTechnologies;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

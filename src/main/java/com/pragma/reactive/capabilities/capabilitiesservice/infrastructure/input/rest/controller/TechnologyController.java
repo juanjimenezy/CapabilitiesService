@@ -1,6 +1,6 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.controller;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Technology;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.Technology;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.service.TechnologyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

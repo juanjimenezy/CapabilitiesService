@@ -10,4 +10,5 @@ import reactor.core.publisher.Mono;
 public interface ICapabilityHandler {
     Mono<CapabilityResponseDTO> createCapability(CapabilityRequestDTO capabilityRequestDTO);
     Flux<CapabilityResponseDTO> getAllCapabilities(int page, int size, boolean asc);
+    Mono<CapabilityResponseDTO> getCapability(Long id);
 }

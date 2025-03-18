@@ -1,7 +1,7 @@
 package com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.output.jpa.adapter;
 
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.model.Technology;
-import com.pragma.reactive.capabilities.capabilitiesservice.domine.spi.ITechnologyPersistencePort;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.model.Technology;
+import com.pragma.reactive.capabilities.capabilitiesservice.domain.spi.ITechnologyPersistencePort;
 import com.pragma.reactive.capabilities.capabilitiesservice.infrastructure.input.rest.service.TechnologyService;
 import reactor.core.publisher.Mono;
 

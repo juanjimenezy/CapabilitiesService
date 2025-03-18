@@ -29,4 +29,11 @@ public class CapabilityController {
     public Flux<CapabilityResponseDTO> findAll(@Valid @RequestBody PagueableRequestDTO pagueableRequestDTO) {
         return capabilityHandler.getAllCapabilities(pagueableRequestDTO.getPage(), pagueableRequestDTO.getSize(), pagueableRequestDTO.isAsc());
     }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Mono<CapabilityResponseDTO> findById(@PathVariable Long id) {
+        return capabilityHandler.getCapability(id);
+    }
+
 }
